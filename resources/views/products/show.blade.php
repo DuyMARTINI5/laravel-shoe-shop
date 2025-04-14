@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <h2 class="fw-bold">{{ $product->name }}</h2>
             <p class="text-danger h4">{{ number_format($product->price, 0, ',', '.') }} đ</p>
-            <p class="text-muted mt-3">Mô tả sản phẩm sẽ được thêm ở đây sau (nếu có).</p>
+            <p class="text-muted mt-3">{{ $product->description }}</p>
 
             <form action="/cart/add" method="POST">
                 @csrf

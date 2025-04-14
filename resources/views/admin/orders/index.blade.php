@@ -29,7 +29,7 @@
                         <td class="text-danger">{{ number_format($order->total, 0, ',', '.') }} đ</td>
                         <td><span class="badge bg-success">Đã đặt</span></td>
                         <td>
-                            <a href="{{ route('order.invoice', $order->id) }}" class="btn btn-sm btn-outline-primary">In hóa đơn</a>
+                            <a href="{{ route('admin.order.invoice', $order->id) }}" class="btn btn-sm btn-outline-primary">In hóa đơn</a>
                         </td>
                     </tr>
                 @endforeach

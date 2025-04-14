@@ -5,16 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
-
+use App\Models\Category;
 class ProductController extends Controller
 {
     public function index()
     {
         
-    $products = Product::all();
-    $featuredProducts = Product::where('is_featured', true)->get();
-
-    return view('home', compact('products', 'featuredProducts'));
+        $products = Product::all(); // Lấy tất cả sản phẩm từ cơ sở dữ liệu
+        return view('admin.products.index', compact('products')); // Trả về view admin.products.index
     }
 
     public function create()
@@ -60,4 +58,12 @@ class ProductController extends Controller
         $product->delete();
         return response()->json(['message' => 'Product deleted']);
     }
+
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id); // Lấy sản phẩm từ cơ sở dữ liệu
+        $categories = Category::all(); // Lấy danh sách danh mục
+        return view('admin.products.edit', compact('product', 'categories')); // Trả về view chỉnh sửa
+    }
+    
 }

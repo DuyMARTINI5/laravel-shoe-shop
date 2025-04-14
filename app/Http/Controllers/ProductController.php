@@ -114,9 +114,19 @@ class ProductController extends Controller
             'Content-Disposition' => 'attachment; filename="' . $filename . '"',
         ]);
     }
+
     public function exportExcel()
     {
-    return Excel::download(new ProductsExport, 'products_export_' . date('Y_m_d_H_i_s') . '.xlsx');
+        return Excel::download(new ProductsExport, 'products_export_' . date('Y_m_d_H_i_s') . '.xlsx');
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('q'); // Lấy từ khóa tìm kiếm từ thanh tìm kiếm
+    $products = Product::where('name', 'like', '%' . $query . '%') // Tìm kiếm theo tên sản phẩm
+        ->orWhere('description', 'like', '%' . $query . '%') // Tìm kiếm theo mô tả sản phẩm
+        ->get();
+
+    return view('products.search_results', compact('products', 'query'));;
+    }
 }

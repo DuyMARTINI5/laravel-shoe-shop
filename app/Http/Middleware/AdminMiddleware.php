@@ -10,11 +10,10 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->is_admin) {
-            return $next($request); // Cho phép tiếp tục truy cập
+        if (!Auth::check() || !Auth::user()->is_admin) {
+            return redirect()->route('home')->with('error', 'Bạn không có quyền truy cập.');
         }
 
-        // Nếu không phải admin thì chuyển về trang chủ
-        return redirect('/');
+        return $next($request); // Cho phép tiếp tục truy cập
     }
 }

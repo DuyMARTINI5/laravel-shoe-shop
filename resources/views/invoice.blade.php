@@ -7,6 +7,27 @@
     <p><strong>SĐT:</strong> {{ $order->customer_phone }}</p>
     <p><strong>Địa chỉ:</strong> {{ $order->customer_address }}</p>
     <p><strong>Ngày đặt hàng:</strong> {{ $order->created_at->format('d/m/Y H:i') }}</p>
+    <p><strong>Phương thức thanh toán:</strong> 
+        @switch($order->payment_method)
+            @case('cod')
+                Thanh toán khi nhận hàng (COD)
+                @break
+            @case('bank_transfer')
+                Chuyển khoản ngân hàng
+                @break
+            @case('paypal')
+                Thanh toán qua PayPal
+                @break
+            @case('momo')
+                Thanh toán qua Momo
+                @break
+            @case('zalopay')
+                Thanh toán qua ZaloPay
+                @break
+            @default
+                Không xác định
+        @endswitch
+    </p>
 
     <table class="table table-bordered mt-4">
         <thead class="table-light">
@@ -18,14 +39,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (json_decode($order->cart, true) as $item)
+            @if ($order->cart && is_array(json_decode($order->cart, true)))
+                @foreach (json_decode($order->cart, true) as $item)
+                    <tr>
+                        <td>{{ $item['name'] }}</td>
+                        <td class="text-center">{{ $item['quantity'] }}</td>
+                        <td class="text-end">{{ number_format($item['price'], 0, ',', '.') }} đ</td>
+                        <td class="text-end">{{ number_format($item['price'] * $item['quantity'], 0, ',', '.') }} đ</td>
+                    </tr>
+                @endforeach
+            @else
                 <tr>
-                    <td>{{ $item['name'] }}</td>
-                    <td class="text-center">{{ $item['quantity'] }}</td>
-                    <td class="text-end">{{ number_format($item['price'], 0, ',', '.') }} đ</td>
-                    <td class="text-end">{{ number_format($item['price'] * $item['quantity'], 0, ',', '.') }} đ</td>
+                    <td colspan="4" class="text-center text-danger">Không có sản phẩm nào trong giỏ hàng.</td>
                 </tr>
-            @endforeach
+            @endif
         </tbody>
         <tfoot>
             <tr>
@@ -40,3 +67,4 @@
     </div>
 </div>
 @endsection
+

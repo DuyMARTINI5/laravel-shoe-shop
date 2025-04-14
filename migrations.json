@@ -1,0 +1,22 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"shoe_shop"},
+{"type":"table","name":"migrations","database":"shoe_shop","data":
+[
+{"id":"1","migration":"2014_10_12_000000_create_users_table","batch":"1"},
+{"id":"2","migration":"2014_10_12_100000_create_password_resets_table","batch":"1"},
+{"id":"3","migration":"2019_08_19_000000_create_failed_jobs_table","batch":"1"},
+{"id":"4","migration":"2019_12_14_000001_create_personal_access_tokens_table","batch":"1"},
+{"id":"5","migration":"2025_03_27_180159_create_products_table","batch":"1"},
+{"id":"6","migration":"2025_03_27_183735_create_categories_table","batch":"1"},
+{"id":"7","migration":"2025_03_28_105617_create_orders_table","batch":"1"},
+{"id":"8","migration":"2025_03_28_112055_add_is_admin_to_users_table","batch":"1"},
+{"id":"9","migration":"2025_03_28_123522_add_user_id_to_orders_table","batch":"1"},
+{"id":"10","migration":"2025_04_01_061429_add_is_featured_to_products_table","batch":"2"},
+{"id":"11","migration":"2025_04_02_185229_add_avatar_to_users_table","batch":"3"},
+{"id":"12","migration":"2025_04_13_083329_update_cart_column_in_orders_table","batch":"4"},
+{"id":"13","migration":"2025_04_13_105425_add_updated_at_to_orders_table","batch":"5"},
+{"id":"14","migration":"2025_04_13_144847_add_total_column_to_orders_table","batch":"6"}
+]
+}
+]

@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('is_featured')->default(false);
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar')->nullable()->after('email'); // Thêm cột avatar sau cột email
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('avatar'); // Xóa cột avatar nếu rollback
         });
     }
 };

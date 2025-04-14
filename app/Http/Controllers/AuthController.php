@@ -55,12 +55,12 @@ class AuthController extends Controller
         return redirect('/')->with('success', 'Đăng ký và đăng nhập thành công!');
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('success', 'Đã đăng xuất.');
+        return redirect('/'); // Chuyển hướng về trang chủ sau khi đăng xuất
     }
 }

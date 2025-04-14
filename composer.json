@@ -10,7 +10,9 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
+        "laravel/socialite": "^5.19",
         "laravel/tinker": "^2.7",
+        "laravel/ui": "^4.6",
         "maatwebsite/excel": "*"
     },
     "require-dev": {
@@ -19,7 +21,7 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
+        "phpunit/phpunit": "^9.6",
         "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {

@@ -11,7 +11,7 @@
         <img src="/images/{{ $product->image }}" width="300">
     @endif
 
-    <form action="{{ url('/add-to-cart/' . $product->id) }}" method="POST" style="margin-top: 20px;">
+    <form action="{{ route('cart.add', $product->id) }}" method="POST" style="margin-top: 20px;">
         @csrf
         <button type="submit">🛒 Thêm vào giỏ hàng</button>
     </form>

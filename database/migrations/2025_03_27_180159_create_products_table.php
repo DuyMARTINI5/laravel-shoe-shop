@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->string('image')->nullable(); // đường dẫn ảnh
             $table->unsignedBigInteger('category_id')->nullable(); // liên kết danh mục (sẽ tạo sau)
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
         });
     }

@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable(); // Cho phép NULL nếu không có user
             $table->string('customer_name');
             $table->string('customer_phone');
-            $table->string('customer_address');
-            $table->text('cart'); // lưu json giỏ hàng
-            $table->decimal('total', 10, 2);
+            $table->text('customer_address');
+            $table->string('payment_method'); // COD, PayPal, etc.
+            $table->json('cart'); // Lưu giỏ hàng dưới dạng JSON
+            $table->decimal('total', 10, 2); // Tổng tiền
             $table->timestamps();
         });
     }

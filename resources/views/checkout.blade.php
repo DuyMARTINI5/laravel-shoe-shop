@@ -19,6 +19,10 @@
             <input type="text" name="phone" id="phone" class="form-control" required>
         </div>
         <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
             <label for="address" class="form-label">Địa chỉ giao hàng</label>
             <textarea name="address" id="address" class="form-control" rows="3" required></textarea>
         </div>

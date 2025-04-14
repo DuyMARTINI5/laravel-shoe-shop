@@ -12,7 +12,8 @@ class Order extends Model
         'customer_name',
         'customer_phone',
         'customer_address',
+        'payment_method',
         'cart',
-        'total',
+        'total', // Thêm cột total
     ];
 }
